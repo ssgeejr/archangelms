@@ -44,7 +44,6 @@ public class ArchAngelService {
 	    }
 	}		
 		
-		
 	@POST
 	@Path("/query")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -77,7 +76,7 @@ public class ArchAngelService {
 //			System.out.println("value: " + value);
 			
 			System.out.println("==========>> OPEN CONNECTION for Database 'sku' <<==========");
-			connMan = new MongoConnectionmanager();
+			connMan = new MongoConnectionmanager("seededdb");
 			mongodb = connMan.getDatabase("sku");
 			System.out.println("==========>> Fetch Filtered Record <<==========");
 			
@@ -111,7 +110,7 @@ public class ArchAngelService {
 		System.out.println("Verfied ArchAngelService online ...");
 //		String result = "";
 // return HTTP response 200 in case of success
-		return Response.status(200).entity("Success").build();
+		return Response.status(200).entity("Success").entity("Verfied ArchAngelService online ...").build();
 	}
 	
 }
