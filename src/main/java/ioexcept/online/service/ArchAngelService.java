@@ -47,6 +47,7 @@ public class ArchAngelService {
 	@POST
 	@Path("/query")
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response query(InputStream incomingData) {
 		String constraint = "car_model";
 		int responseCode = 200;
@@ -76,7 +77,7 @@ public class ArchAngelService {
 //			System.out.println("value: " + value);
 			
 			System.out.println("==========>> OPEN CONNECTION for Database 'sku' <<==========");
-			connMan = new MongoConnectionmanager("seededdb");
+			connMan = new MongoConnectionmanager("archangeldb");
 			mongodb = connMan.getDatabase("sku");
 			System.out.println("==========>> Fetch Filtered Record <<==========");
 			
